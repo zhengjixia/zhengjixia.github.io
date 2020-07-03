@@ -6,48 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>OSPF学习笔记（二） | Hexo</title>
+  <title>OSPF学习笔记（四） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ospf单区域MA网络&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;在每个至少两台路由器的广播网络中都有一台作为指定路由器（DR），指定路由器生成Network-LSA（二类路由）。DR、BDR通过Hello协议选举。">
+  <meta name="description" content="总结一下前面实验抓到的五种类型的包吧，在单区域P2P网络中抓到了一类路由，在单区域MA网络中抓到了一类和二类的路由（二类路由是选举出来的DR产生的），在多区域P2P中抓到了一、三、四、五类路由">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSPF学习笔记（二）">
-<meta property="og:url" content="http://yoursite.com/2020/07/03/ospf-2/index.html">
+<meta property="og:title" content="OSPF学习笔记（四）">
+<meta property="og:url" content="http://yoursite.com/2020/07/03/ospf-4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ospf单区域MA网络&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;在每个至少两台路由器的广播网络中都有一台作为指定路由器（DR），指定路由器生成Network-LSA（二类路由）。DR、BDR通过Hello协议选举。">
+<meta property="og:description" content="总结一下前面实验抓到的五种类型的包吧，在单区域P2P网络中抓到了一类路由，在单区域MA网络中抓到了一类和二类的路由（二类路由是选举出来的DR产生的），在多区域P2P中抓到了一、三、四、五类路由">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/IQgk1rJF8Nvb9ic.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/CeqTaOwdZPmWLjV.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/f68JXwknaZRAtBu.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/B1yr2DKlsTGfMR4.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/EzM4UrRBseK3tIj.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/klKZObHQW9vnNaT.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/1UQGSMNW5bfOm6Z.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/tsSx32kgQmzcyar.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/tMDHfuiPSoa8lZY.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/2MQzdOI3Wfurtna.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/pbtMzrTUvoS5nmB.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/sxn3bR2JrMcDkwg.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/5efYpTEUZioy9zc.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/cDeIPCkYZwhB63a.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/sfeLHInC4Nc2qgZ.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/IDpxOmqWKo2LwJ6.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/bvo2aTzMsY6wdfU.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/TUL2XR6F73HNwoA.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/Ohz9rD1WQpkc8wn.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/a9BT3ZUgextWySO.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/Jn57Ot21W9YXvkl.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/2F9isSnILpHBGNq.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/mDUkucLq6l7drWX.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/cF8evsRo1O7qanj.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/Z1VTHUfiKFtrwa5.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/i4OSEIRd8AbGoQs.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/03/O1zCNoSgc3rTuwq.png">
-<meta property="article:published_time" content="2020-07-03T12:02:13.744Z">
-<meta property="article:modified_time" content="2020-07-03T14:30:32.892Z">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/Pk2HLsM3yemUjWC.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/6Rz7UukQbBsaS5X.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/6PFhqXyJUVb1Bco.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/SA21vrfsNuendk5.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/Wl3AYr58mcJZUyI.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/Q3dTE4vrJeY2GHh.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/IUrnzWgRNAX7pqC.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/bNBraClEiVDwP12.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/dVnTFeOrYIpJUCa.png">
+<meta property="article:published_time" content="2020-07-03T14:29:00.000Z">
+<meta property="article:modified_time" content="2020-07-03T15:01:54.530Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="OSPF单区域MA网络">
+<meta property="article:tag" content="OSPF一到五类路由">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/07/03/IQgk1rJF8Nvb9ic.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/07/03/Pk2HLsM3yemUjWC.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -178,14 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ospf-2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ospf-4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OSPF学习笔记（二）
+      OSPF学习笔记（四）
     </h1>
   
 
@@ -201,76 +183,38 @@
 
 <!--显示阅读次数完毕-->
         
-        <a href="/2020/07/03/ospf-2/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:02:13.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
+        <a href="/2020/07/03/ospf-4/" class="archive-article-date">
+  	<time datetime="2020-07-03T14:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ospf单区域MA网络"><a href="#ospf单区域MA网络" class="headerlink" title="ospf单区域MA网络"></a>ospf单区域MA网络</h3><p>&ensp;&ensp;&ensp;&ensp;在每个至少两台路由器的广播网络中都有一台作为指定路由器（DR），指定路由器生成Network-LSA（二类路由）。<font color=blue>DR、BDR通过Hello协议选举。</font></p>
+        <p>总结一下前面实验抓到的五种类型的包吧，在单区域P2P网络中抓到了一类路由，在单区域MA网络中抓到了一类和二类的路由（二类路由是选举出来的DR产生的），在多区域P2P中抓到了一、三、四、五类路由</p>
 <a id="more"></a>
-<h5 id="DR-BDR选举"><a href="#DR-BDR选举" class="headerlink" title="DR/BDR选举"></a>DR/BDR选举</h5><p><font color=green> <strong>DR</strong></font>：通常，当路由器的网络接口开始工作时，先检测网络上是否已经存在DR，如果有，便接受这一DR，而忽略路由器优先级（<font color=blue>不抢占</font>），当DR改变时，该网络和所有接入的路由器生成新的LSA，在连接状态数据库再次收敛前，会导致暂时失去网络的连通，会使数据流量产生ICMP不可达响应。<br><font color=green> <strong>BDR</strong></font>：BDR不为网络生成Network-LSA（如果生产的话，可以更快的转换为DR，这实际上是在数据库大小与DR失效后的收敛速度之间的一种折中）</p>
-<p><strong>选举过程：</strong><br>（1）网络上各路由器宣告自己是DR（路由器优先级为0的除外），通过比较路由器和优先级和路由表示来选举出DR<br>（2）只有那些不宣告自己是DR的才能成为BDR（也就是在DB选举出来之后），根据路由器优先级和路由标识来选举出DBR<br>（3） 选举出来后，DRother之间的路由状态机将会从full变成2-way<br><strong>实验目的：观察ospf的单区域广播网络下，DR和BDR选举规则<br>实验拓扑：    （1） 不同网段之间的BR选举&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;（2） 同一网段之间的BR选举</strong></p>
-<p><img src="https://i.loli.net/2020/07/03/IQgk1rJF8Nvb9ic.png" alt="ma_1.png"></p>
-<p><strong>基本配置：如拓扑图所示配置端口相应ip地址，设置ospf network-type为广播</strong></p>
-<p><strong>（1）在不同网段中：</strong><br>&ensp;&ensp;&ensp;&ensp;&ensp;<strong>配置命令：</strong><br>        <code>[R1]router id 1.1.1.1</code><br>        <code>[R1-g0/0/0]ip add 192.168.1.1 24</code><br>          <code>[R1-g0/0/0]ospf network-type broacast</code><br>          <code>[R1]ospf 1</code><br>         <code>[R1-ospf-1]area 0.0.0.0</code><br>         <code>[R1-ospf-1-area-0.0.0.0]network 192.168.1.1 0.0.0.255</code><br>        <code>R2、R3、R4、R5配置命令类似</code></p>
-<p><strong>选举根据：</strong><br><font color=red>1）比较优先级，越大越优（默认为1,最大255，0表示不参加选举）<br>2）比较Router-ID，越大越优</font></p>
-<p>在R5上用<code>[R5]dis ospf peer</code>查看邻居表<br><img src="https://i.loli.net/2020/07/03/CeqTaOwdZPmWLjV.png" alt="ma_2.png"></p>
-<p><strong>（2）在不同 网段中<br>配置命令：</strong><br>[R1]router id 1.1.1.1<br>[R1-g0/0/0]ip add 192.168.1.1 24<br>[R1-g0/0/0]ospf network-type broacast<br>[R1]ospf 1<br>[R1-ospf-1]area 0.0.0.0<br>[R1-ospf-1-area-0.0.0.0]network 192.168.1.1 0.0.0.255<br>R2、R3、R4、R5配置命令类似<br><font color=red>在配置过程中发现，如果配置的速度不够快，R3会成为DR，DR选举是在一段时间里进行的，超过了时间，即使出现更大的Router id,DR也不会变化。</font><br>在R4上用命令：<code>[R4]dis ospf peer</code>查看配置<br><img src="https://i.loli.net/2020/07/03/f68JXwknaZRAtBu.png" alt="ma_3.png"><br><strong>可以看到选举出来的DR是R4，选举出来的BDR是R3（根据Router id）</strong></p>
-<p>在R1上用命令：<code>[R1]dis ospf peer brief</code>查看邻居表<br><img src="https://i.loli.net/2020/07/03/B1yr2DKlsTGfMR4.png" alt="ma_4.png"><br><font color=blue><strong>在ospf-广播网络中，路由器只与DR和BDR建立邻接关系达到full状态，所以R1和R2之间状态机只达到2way（会在选举完DR和BDR之后将R1和R2之间的状态从full变成2-way）</strong></font></p>
-<p>邻接关系图：<br><img src="https://i.loli.net/2020/07/03/EzM4UrRBseK3tIj.png" alt="ma_5.png"></p>
-<h4 id="报文分析："><a href="#报文分析：" class="headerlink" title="报文分析："></a>报文分析：</h4><p><strong>实验拓扑：</strong><br><img src="https://i.loli.net/2020/07/03/klKZObHQW9vnNaT.png" alt="ma_6.png"></p>
-<p><strong>实验目的：观察ospf单区域广播网络下产生的二类路由、DR与非DR路由器之间的连接过程</strong></p>
-<p>在R2上观察报文（看DRother上的报文观察224.0.0.6）<br>用ip.src==192.168.1.2语句过滤报文<br><img src="https://i.loli.net/2020/07/03/1UQGSMNW5bfOm6Z.png" alt="ma_7.png"></p>
-<p><font color=blue><strong>在选举出BR和DBR后，路由器会给224.0.0.6发送LSU报文，之后R2与R3和R4（DR、BDR）建立连接之后，R2的LSU、LSAck报文都会发给组播地址224.0.0.6</strong></font></p>
-<h5 id="Hello报文："><a href="#Hello报文：" class="headerlink" title="Hello报文："></a>Hello报文：</h5><p>R3：<br><img src="https://i.loli.net/2020/07/03/tsSx32kgQmzcyar.png" alt="ma_8.png"></p>
-<p>收到R1、R2、R4的hello报文前后对比<br><img src="https://i.loli.net/2020/07/03/tMDHfuiPSoa8lZY.png" alt="ma_9.png"></p>
-<p><font color=blue><strong>在hello报文交互的过程中，先选举DR，等DR选举出来后，再从剩下的路由器中选举出BDR。选好后，会重新发送hello报文通告</strong></font></p>
-<p><img src="https://i.loli.net/2020/07/03/2MQzdOI3Wfurtna.png" alt="ma_10.png"></p>
-<p><strong>观察R1、R2、R3上的报文发现，选举出DR之后，R1、R2、R3就会与R4发送DD报文确定主从</strong></p>
-<p>R1:<img src="https://i.loli.net/2020/07/03/pbtMzrTUvoS5nmB.png" alt="ma_11.png"><br>R2:<img src="https://i.loli.net/2020/07/03/sxn3bR2JrMcDkwg.png" alt="ma_12.png"><br>R3:<img src="https://i.loli.net/2020/07/03/5efYpTEUZioy9zc.png" alt="ma_13.png"></p>
-<p><font color=blue>说明只要互发Hello报文之后就能发送DD报文确认主从，不用等选举出DR和BDR之后</font></p>
-<h5 id="DD报文："><a href="#DD报文：" class="headerlink" title="DD报文："></a>DD报文：</h5><p>R4（DR）：可以看到R4与AS中的路由器都进行建立邻接关系</p>
-<p>与R1：<br><img src="https://i.loli.net/2020/07/03/cDeIPCkYZwhB63a.png" alt="ma_14.png"></p>
-<p>与R2:<br><img src="https://i.loli.net/2020/07/03/sfeLHInC4Nc2qgZ.png" alt="ma_15.png"></p>
-<p>与R3:<br><img src="https://i.loli.net/2020/07/03/IDpxOmqWKo2LwJ6.png" alt="ma_16.png"></p>
-<p>看R3上:<br>报文109：<br><img src="https://i.loli.net/2020/07/03/bvo2aTzMsY6wdfU.png" alt="ma_17.png"></p>
-<p>报文116：<br><img src="https://i.loli.net/2020/07/03/TUL2XR6F73HNwoA.png" alt="ma_18.png"><br>报文138:<br><img src="https://i.loli.net/2020/07/03/Ohz9rD1WQpkc8wn.png" alt="ma_19.png">))</p>
-<table><tr><td bgcolor=yellow>在广播网络中，如果路由器还没有与DR建立完全邻接，则连接类型为Stub，当路由器与DR建立完全邻接后，连接类型变为transit（DR本身连接类型就是transit）</td></table>
-
-<p><strong>路由器R4的G0/0/0接口：</strong><br><img src="https://i.loli.net/2020/07/03/a9BT3ZUgextWySO.png" alt="ma_20.png"></p>
-<p>报文80：产生了第一个二类路由（此时还没有与R1建立完全邻接关系，所以attached  router中不包含R1）</p>
-<p><img src="https://i.loli.net/2020/07/03/Jn57Ot21W9YXvkl.png" alt="ma_21.png"></p>
-<p><font color=blue>二类路由Network-LSA由区域中的DR产生。仅当DR与网络上至少一台路由器完全邻接后，才生产该LSA。</font></p>
-<p>当R4与R1建立完全邻接关系之后，发出更新报文LSU<br>报文109：</p>
-<p><img src="https://i.loli.net/2020/07/03/2F9isSnILpHBGNq.png" alt="ma_22.png"></p>
-<p>用配置命令<code>[Huawei]dis ospf routing</code> 查看路由表<br><img src="https://i.loli.net/2020/07/03/mDUkucLq6l7drWX.png" alt="ma_23.png"></p>
-<p><strong>在ospf广播类型网络中，只有一条去往DR的路由。连接类型为<code>Transit</code></strong><br>用配置命令<code>[Huawei]dis ospf lsdb</code>查看连接状态数据库</p>
-<p><img src="https://i.loli.net/2020/07/03/cF8evsRo1O7qanj.png" alt="ma_24.png"></p>
-<p>在R1、R2、R3、R4上都查看路由器本地LSDB发现：</p>
-<p><img src="https://i.loli.net/2020/07/03/Z1VTHUfiKFtrwa5.png" alt="ma_25.png"></p>
-<p><font color=blue><strong>广播网络中去往DR的开销都为0</strong></font><br>用配置命令<code>[Huawei]dis ospf lsdb router self-originate</code>查看路由器自身发送的一类路由</p>
-<p><img src="https://i.loli.net/2020/07/03/i4OSEIRd8AbGoQs.png" alt="ma_26.png"></p>
-<p>用配置命令<code>[Huawei]dis ospf lsdb network</code>查看二类路由信息</p>
-<p><img src="https://i.loli.net/2020/07/03/O1zCNoSgc3rTuwq.png" alt="ma_27.png"><br>二类路由信息包含广播网络中的拓扑结构</p>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><p><strong>&ensp;&ensp;&ensp;&ensp;在DR/BDR选举中：</strong></p>
+<h4 id="一类路由-Router-LSA"><a href="#一类路由-Router-LSA" class="headerlink" title="一类路由(Router-LSA)"></a>一类路由(Router-LSA)</h4><p>其网络类型分为：</p>
 <ul>
-<li>不抢占，DR正常工作时，即使有新的优先级比DR高的路由器也不能抢占成为DR</li>
-<li>DR正常时，BDR只监听所有信息，转发LSA和同步LSDB的任务由DR完成，当DR故障时，BDR自动成为DR，完成原DR的工作，并选举新的BDR</li>
-<li>DR是个接口概念，每个网段都会选举DR/BDR（同网段不同LAN也会选举DR）</li>
-<li>DR先选举完之后，再进行BDR的选举</li>
+<li><p><strong>PTP</strong><br><img src="https://i.loli.net/2020/07/03/Pk2HLsM3yemUjWC.png" alt="总结1.png"><br><font color=green><strong>Link ID</strong></font>:为router id （路由器所接入的目标）<br><font color=green><strong>Link Data</strong></font>：为接口ip地址（连接数据）<br><font color=green><strong>Link Type</strong></font>：点到点连接到另一台路由器（路由器连接的基本描述）<br><font color=green><strong>Metric</strong></font>：路径开销</p>
+</li>
+<li><p><strong>Transit</strong><br><img src="https://i.loli.net/2020/07/03/6Rz7UukQbBsaS5X.png" alt="总结2.png"><br><font color=green><strong>Link ID</strong></font>：DR的接口IP地址 （路由器所接入的目标）<br><font color=green><strong>Link Data</strong></font>：路由器接口的IP地址（连接数据）<br><font color=green><strong>Link Type</strong></font>：链接到传输网络（路由器连接的基本描述）<br><font color=green><strong>Metric</strong></font>：路径开销</p>
+</li>
+<li><p><strong>Stub</strong><br><img src="https://i.loli.net/2020/07/03/6PFhqXyJUVb1Bco.png" alt="总结3.png"><br><font color=green><strong>Link ID</strong></font>：网段/子网号 （路由器所接入的目标）<br><font color=green><strong>Link Data</strong></font>：子网掩码（连接数据）<br><font color=green><strong>Link Type</strong></font>：连接到stub网络（路由器连接的基本描述）<br><font color=green><strong>Metric：</strong></font>路径开销</p>
+</li>
+<li><p><strong>virtual</strong><br><img src="https://i.loli.net/2020/07/03/SA21vrfsNuendk5.png" alt="总结4.png"><br><font color=green><strong>ink ID</strong></font>：虚连接中对端的RouterID（路由器所接入的目标）<br><font color=green><strong>Link Data</strong></font>：路由器接口的IP地址（连接数据）<br><font color=green><strong>Link Type</strong></font>：虚拟链路（路由器连接的基本描述）<br><font color=green><strong>Metric：</strong></font>路径开销</p>
+</li>
 </ul>
-<p><strong>&ensp;&ensp;&ensp;&ensp;在单区域MA网络中：</strong></p>
-<ul>
-<li>一定出现二类路由和一类路由；</li>
-<li>一类路由中有stub和transit链接类型，如果路由器还没有与DR建立完全邻接，则连接类型为Stub，当路由器与DR建立完全邻接后，连接类型变为transit（DR本身连接类型就是transit）</li>
-<li>对比单区域P2P网络中路由器的LSDB，MA网络中多了Network类型的链路信息，记录网络中的DR信息。且去DR的metric均为0</li>
-<li>路由器只与DR和BDR建立邻接关系，DRother之间为2-way状态</li>
-<li>DRother向DR/BDR发送报文时目标地址为224.0.0.6；DR/BDR发给DRother的报文发到224.0.0.5</li>
-<li>二类路由Network-LSA由区域中的DR产生。仅当DR与网络上至少一台路由器完全邻接后，才生产该LSA。</li>
-</ul>
+<p><strong>结合前面做的三个实验（单区域P2P、单区域MA、多区域P2P）通过对比捕捉的数据包、查看路由器上的配置，可以得出以下结论：</strong><br>    1）P2P网络中，会出现stub、PTP类型链接：只要接口状态为点对点（不论邻居路由器状态），都会产生类型为Stub的连接。如果邻居路由器为完全邻接，加入PTP连接。<br>    2）在MA网络中，会出现stub、transit类型链接：如果路由器还没有与DR建立完全邻接，则连接类型为Stub，当路由器与DR建立完全邻接后，连接类型变为transit（DR本身连接类型就是transit）<br>    3）在多区域中配置虚链接时，会出现virtual类型链接：该类型一类路由只会在区域0中捕捉到。<br>    4）一类路由仅在区域间广播，不会泛洪到其他区域</p>
+<h4 id="二类路由（Network-LSA）"><a href="#二类路由（Network-LSA）" class="headerlink" title="二类路由（Network-LSA）"></a>二类路由（Network-LSA）</h4><p><strong>描述了所有接入网络的路由器（由DR产生）</strong><br><img src="https://i.loli.net/2020/07/03/Wl3AYr58mcJZUyI.png" alt="总结5.png"></p>
+<p><font color=green><strong>Link State ID</strong></font>：DR的接口IP地址<br><font color=green><strong>Network Mask</strong></font>：该广播网网络地址的掩码<br><font color=green><strong>Attached Router</strong></font>：连接在同一个网络上所有路由器的Router ID（也包括DR的Router ID）<br><strong>结合前面做的三个实验（单区域P2P、单区域MA、多区域P2P）通过对比捕捉的数据包、查看路由器上的配置，可以得出以下结论：</strong><br>    1）二类路由只会出现在MA类型网络中<br>    2）二类路由Network-LSA由区域中的DR产生。仅当DR与网络上至少一台路由器完全邻接后，才生产该LSA。<br>    3）二类路由仅在区域间泛洪，不会发送到其他网络</p>
+<h4 id="三类路由（Summary-LSA）"><a href="#三类路由（Summary-LSA）" class="headerlink" title="三类路由（Summary LSA）"></a>三类路由（Summary LSA）</h4><p><img src="https://i.loli.net/2020/07/03/Q3dTE4vrJeY2GHh.png" alt="总结6.png"></p>
+<p><font color=green><strong>Link ID</strong></font>：通告的网络地址<br><font color=green><strong>Network Mask</strong></font>：该广播网的掩码<br><font color=green><strong>Tos</strong></font>：服务类型<br><font color=green><strong>TOS metric</strong></font>:TOS附加距离信息</p>
+<p><strong>结合前面做的三个实验（单区域P2P、单区域MA、多区域P2P）通过对比捕捉的数据包、查看路由器上的配置，可以得出以下结论：</strong><br>1）三类路由由ABR发送，描述的是区域内所有网段的路由，可以通过路由汇总减少三类路由的数量</p>
+<h4 id="四类报文格式分析："><a href="#四类报文格式分析：" class="headerlink" title="四类报文格式分析："></a>四类报文格式分析：</h4><p><img src="https://i.loli.net/2020/07/03/IUrnzWgRNAX7pqC.png" alt="总结7.png"></p>
+<p><font color=green><strong>Link State ID</strong></font>:ASBR的Router ID<br><font color=green><strong>Adverting Router</strong></font>:通告路由的Router id（ABR）<br><font color=blue><strong>在区域1、区域2、区域3都能抓到4类报文，但是在区域0没有（R1的G0/0/0接口和R0的G0/0/1接口），因为ASBR在区域0</strong></font><br><strong>结合前面做的三个实验（单区域P2P、单区域MA、多区域P2P）通过对比捕捉的数据包、查看路由器上的配置，可以得出以下结论：</strong><br>    1）由ABR产生，描述到ASBR的路由，通告给除ABR所在区域的其他相关区域。<br>    2）在路由器的LSBD中可能会出现多条关于四类路由更新的信息，由不同的ABR发送</p>
+<h4 id="五类报文格式分析"><a href="#五类报文格式分析" class="headerlink" title="五类报文格式分析"></a>五类报文格式分析</h4><p><img src="https://i.loli.net/2020/07/03/bNBraClEiVDwP12.png" alt="总结8.png"></p>
+<p><font color=green><strong>Link State ID</strong></font>：通告的网络地址<br><font color=green><strong>Advertising router</strong></font>：通告该外部路由ASBR的Router id<br><font color=green><strong>E</strong></font>：外部度量值类型：0：第一类外部路由；1：第二类外部路由<br><font color=green><strong>Forwarding Address</strong></font>：到所有通告的目的地址的报文将被转发到这个地址<br><font color=green><strong>External Router Tag</strong></font>:添加到外部路由上的标记<br><font color=red><strong>在R0上配置去外网的默认路由后，R0成为了ASBR，R0会产生五类路由描述到AS外部路由的路径，在整个AS内泛洪，ABR在收到ASBR泛洪的五类路由后，会产生四类路由，描述到ASBR的路由，通告给除ASBR所在区域的其他区域</strong></font><br><strong>结合前面做的三个实验（单区域P2P、单区域MA、多区域P2P）通过对比捕捉的数据包、查看路由器上的配置，可以得出以下结论：</strong><br>    1）由ASBR产生，描述带AS外部的路由，广播通告给AS内所有路由器。<br>    2）这是五种LSA中，唯一一种通告给所有区域的LSA</p>
+<h4 id="总结关键字段解释："><a href="#总结关键字段解释：" class="headerlink" title="总结关键字段解释："></a>总结关键字段解释：</h4><p><img src="https://i.loli.net/2020/07/03/dVnTFeOrYIpJUCa.png" alt="总结9.png"></p>
 
       
 
@@ -305,7 +249,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OSPF单区域MA网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">OSPF一到五类路由</a>
         		</li>
       		
 		</ul>
@@ -361,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/03/ospf-2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/03/ospf-4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/03/ospf-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          OSPF学习笔记（三）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/02/ospf/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OSPF学习笔记（一）</div>
+    <a href="/2020/07/03/ospf-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OSPF学习笔记（三）</div>
       <i class="icon-circle-right"></i>
     </a>
   
