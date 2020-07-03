@@ -6,15 +6,64 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>OSPF学习笔记（三） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="OSPF-多区域P2P网络&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;ospf协议中，不同区域之间通过ABR同步链路状态数据库，通过ASBR与AS外部网络通信。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSPF学习笔记（三）">
+<meta property="og:url" content="http://yoursite.com/2020/07/03/ospf-3/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="OSPF-多区域P2P网络&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;ospf协议中，不同区域之间通过ABR同步链路状态数据库，通过ASBR与AS外部网络通信。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/tgDZyP6Ak4CiOqh.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/AS81pXnfcTC5tYu.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/b19foKqTwpeRZEc.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/iQE7JgoNjPAHR4W.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/EM2Xvmxp3goPQz9.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/9ClX5jxQERO6nFw.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/42ehGWXLzwouEpf.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/odM4BeRctsW2K9U.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/f3EwtBSFrKuYQ9z.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/CuhirGAVUYpMSFJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/Ztscy4eAmXURCPq.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/sKNwqApcf8EVWMe.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/eFWOfMLh49xkqsQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/B1V6aqOnwAQMNYu.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/jULWokefAsiyHMu.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/uLIBOVoPCwMm6UF.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/h4fb5gzpleL3qUt.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/bBxITYXoP9dCai4.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/uLdUmwq8Sx9pKbP.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/Jc2dLUDpxoRsNBG.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/c4Vr3uOQCdf5yEJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/BtOhsJUVbWLQAen.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/F6jcnMm4ptD7e3g.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/ZktoIPyOcJGDKLM.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/NTcjyr3Btqom75d.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/2WFMY8JyIoB54fx.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/XVKg5bk6mj9w1ET.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/mWqL3TNHO6CweMc.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/HhiILrWN4pK1F8d.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/jOpiC1HFXgsIf6G.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/C52cZEfGqa9Fzol.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/YuSvFs1wMr3Xt87.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/SR1xDKyMVf9pUgb.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/NaZSDiYcb9UhXgB.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/IN25bWGYrR6jSLB.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/i6HIDgNmJXFVane.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/dyKMLBT5GckVPhw.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/EjsSeuG3gMDXhHo.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/kWH1MR64D8fTrd5.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/1lcnL4ipwGueXTs.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/wPQ5bzRx3cWi8au.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/pmGTUoPX4fnjQ8K.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/03/gqo5zGdEUjkynrc.png">
+<meta property="article:published_time" content="2020-07-03T12:28:04.000Z">
+<meta property="article:modified_time" content="2020-07-03T14:23:21.046Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="OSPF多区域P2P网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/07/03/tgDZyP6Ak4CiOqh.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -145,36 +194,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ospf-3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/03/ospf-3/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:28:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/03/ospf-3/">OSPF学习笔记（三）</a>
+    <h1 class="article-title" itemprop="name">
+      OSPF学习笔记（三）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2020/07/03/ospf-3/" class="archive-article-date">
+  	<time datetime="2020-07-03T12:28:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="OSPF-多区域P2P网络"><a href="#OSPF-多区域P2P网络" class="headerlink" title="OSPF-多区域P2P网络"></a>OSPF-多区域P2P网络</h3><p>&ensp;&ensp;&ensp;&ensp;ospf协议中，不同区域之间通过ABR同步链路状态数据库，通过ASBR与AS外部网络通信。</p>
+<a id="more"></a>
+<p><strong>实验拓扑</strong></p>
+<p><img src="https://i.loli.net/2020/07/03/tgDZyP6Ak4CiOqh.png" alt="1.png"></p>
+<p><strong>实验目的：分析ospf多区域p2p网络中，区域之间如何同步连接状态数据库，观察三类、四类、五类报文格式和作用</strong><br><strong>配置命令：</strong><br><strong>区域1</strong>：R101、R102、R1按照拓扑图所示设置Router id、端口网络类型设为P2P，和区域内网段<br><strong>区域0：</strong><br> R0:[R0]…//如拓扑图所示配置Router id、端口网络类型和区域内网段<br>   [R0-ospf-1]import-router static<br>   [R0-ospf-1]ip router static 222.1.1.0 24 200.0.1.2 //配置静态路由去往AS外部<br><strong>外部AS：</strong><br>RA:[RA-g0/0/2]ip add 200.0.1.2<br>     [RA-loopback-1]ip add 222.1.1.1 24<br>     [RA]ip router-static 0.0.0.0 200.0.1.1 //配置默认路由<br><strong>区域2:</strong>R2、R201、R3按照拓扑图所示设置Router id、端口网络类型设为P2P，和区域内网段<br>  R2：[R2-ospf-1]abr-summary 192.168.2.0 0.0.0.255 //设置链路汇聚，减少三类路由条目<br>      [R2-ospf-1]vlink-peer 3.3.3.3  //配置连接到区域3的虚链接<br>  R3：[R3-ospf-1]abr-summary 10.0.0.0 0.0.0.255 //设置链路汇聚，减少三类路由条目<br>      [R3-ospf-1]vlink-peer 2.2.2.2  //配置连接到区域0的虚链接<br><strong>区域3</strong>：R301、R302按照拓扑图所示设置Router id、端口网络类型设为P2P，和区域内网段</p>
+<h4 id="先配置区域1-0-0-0："><a href="#先配置区域1-0-0-0：" class="headerlink" title="先配置区域1.0.0.0："></a>先配置区域1.0.0.0：</h4><p>R1的g0/0/2端口：</p>
+<p><img src="https://i.loli.net/2020/07/03/AS81pXnfcTC5tYu.png" alt="2.png"></p>
+<p><strong>此时一类报文中，flag标识为0x01,表示路由器为ABR</strong><br><img src="https://i.loli.net/2020/07/03/b19foKqTwpeRZEc.png" alt="3.png"></p>
+<p>用配置命令<code>[Huawei]dis ospf peer brief</code>查看邻居表<br><img src="https://i.loli.net/2020/07/03/iQE7JgoNjPAHR4W.png" alt="4.png"></p>
+<p>区域1的路由器之间都建立了邻接关系<br><strong>此时LSU中只有一类路由</strong></p>
+<h4 id="配置区域0-0-0-0："><a href="#配置区域0-0-0-0：" class="headerlink" title="配置区域0.0.0.0："></a>配置区域0.0.0.0：</h4><p>R1上G0/0/2端口：<br><img src="https://i.loli.net/2020/07/03/EM2Xvmxp3goPQz9.png" alt="7.png"></p>
+<p>区域0的路由信息会通过R1（ABR）同步到区域1<br>报文5：<br><img src="https://i.loli.net/2020/07/03/9ClX5jxQERO6nFw.png" alt="8.png"></p>
+<p><font color=red><strong>ABR会产生三类路由：Summary LSA，描述区域内所有网段的路由，并通告给其他相关区域。</strong></font></p>
+<h4 id="配置区域2-0-0-0："><a href="#配置区域2-0-0-0：" class="headerlink" title="配置区域2.0.0.0："></a>配置区域2.0.0.0：</h4><p>R2上G0/0/0端口：<br><img src="https://i.loli.net/2020/07/03/42ehGWXLzwouEpf.png" alt="9.png"></p>
+<p>包7-22是R2与R201建立邻接关系</p>
+<p><strong>具体过程：</strong><br>R2与R201先发送hello报文，建立邻居关系之后，发送DD报文确认主从，再发送DD摘要<br><img src="https://i.loli.net/2020/07/03/odM4BeRctsW2K9U.png" alt="10.png"></p>
+<p>报文11：R201向R1发送DD摘要<br>报文12：R1根据收到的DD摘要中的LSA头部向R201发送LSR请求<br>报文14：R201收到LSR后向R1发送LSUpdata报文<br><img src="https://i.loli.net/2020/07/03/f3EwtBSFrKuYQ9z.png" alt="11.png"></p>
+<p><img src="https://i.loli.net/2020/07/03/CuhirGAVUYpMSFJ.png" alt="12.png"><br>报文13：R1向R1报文发送DD摘要<br>报文15：R201根据收到的DD摘要中的LSA头部向R1发送LSR请求<br>报文17：R1收到LSR后向R201发送LSUpdata报文<br><img src="https://i.loli.net/2020/07/03/Ztscy4eAmXURCPq.png" alt="13.png"></p>
+<p>R2的一类路由中：<br><img src="https://i.loli.net/2020/07/03/sKNwqApcf8EVWMe.png" alt="14.png"></p>
+<p>含有192.168.1.0和192.168.2.0网段的路由信息。其他区域的路由信息不转发，<font color=blue><strong>说明一类路由仅在本区域广播。</strong></font></p>
+<p><strong>R2的三类路由中：</strong><br><img src="https://i.loli.net/2020/07/03/eFWOfMLh49xkqsQ.png" alt="15.png"></p>
+<p><strong>其中包含区域1与区域0的网段信息，是目前为止R2所掌握的AS中所有的路由信息</strong><br><img src="https://i.loli.net/2020/07/03/B1V6aqOnwAQMNYu.png" alt="16.png"></p>
+<p>报文18：R2收到报文16后更新LSA中一类路由：<br><img src="https://i.loli.net/2020/07/03/jULWokefAsiyHMu.png" alt="17.png"></p>
+<p><font color=blue>PTP网络中ID为邻居的router Data为该网段上本地接口的IP地址<br>Stub网络中ID为该网段的IP网络地址，data为该网络断的网络掩码</font><br>报文19：R201收到报文17R2的更新报文后，对比本地链路信息数据库发出的更新报文<br>报文20：R2收到R201的更新报文后，对比本地链路信息数据库产生的更新报文。</p>
+<h4 id="配置外网："><a href="#配置外网：" class="headerlink" title="配置外网："></a>配置外网：</h4><p><strong>在R0（ASBR）的G0/0/0端口：</strong><br><img src="https://i.loli.net/2020/07/03/uLIBOVoPCwMm6UF.png" alt="20.png"></p>
+<p>报文7：加入外部AR，在R0上配置去往RA网段的静态路由，R0作为ASBR，会产生五类路由<br><img src="https://i.loli.net/2020/07/03/h4fb5gzpleL3qUt.png" alt="21.png"></p>
+<p><font color=green>Advertising router</font>：通告该外部路由ASBR的router-id<br><font color=green>External type</font>:   代表外部路由类型，<strong>分为一类外部路由，计算路由开销时会加上自治域外部的路由开销；二类外部路由，计算路由开销时不会加上自治域外部的路由开销</strong>；所以一类外部路由比二类外部路由可靠。</p>
+<p>R1上G0/0/2端口：<br><img src="https://i.loli.net/2020/07/03/bBxITYXoP9dCai4.png" alt="22.png"></p>
+<p>报文5：R1为ABR，收到ASBR产生的五类路由后，会向本区域内发送四类路由描述到ASBR的的路由<br><img src="https://i.loli.net/2020/07/03/uLdUmwq8Sx9pKbP.png" alt="23.png"></p>
+<h4 id="配置区域3-0-0-0（建立虚链接）"><a href="#配置区域3-0-0-0（建立虚链接）" class="headerlink" title="配置区域3.0.0.0（建立虚链接）"></a>配置区域3.0.0.0（建立虚链接）</h4><p>R2上G0/0/1接口：<br><img src="https://i.loli.net/2020/07/03/Jc2dLUDpxoRsNBG.png" alt="24.png"></p>
+<p>用命令：<br>    <figure class="highlight plain"><figcaption><span>vlink-peer 3.3.3.3```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;[R3-ospf-1-area2.0.0.0] vlink-peer 2.2.2.2</span><br></pre></td></tr></table></figure><br>配置虚链接<br>报文4-14是R0与R2建立连接的过程<br>报文24：R3建立虚链接后泛洪LSU更新信息</p>
+<p><img src="https://i.loli.net/2020/07/03/c4Vr3uOQCdf5yEJ.png" alt="25.png"></p>
+<p>用配置命令：[Huawei]dis ospf vlink查看路由器上配置的虚链接<br><img src="https://i.loli.net/2020/07/03/BtOhsJUVbWLQAen.png" alt="26.png"></p>
+<p>irtual网络类型的一类路由只出现在<font color=blue><strong>区域0</strong></font>中。原本以为，在配置虚链路的R2和R3（区域2）之间会抓到virtual类型的一类路由，但观察抓到的数据包显示并没有，虚链路是在逻辑上将区域3与区域0做连接，跟区域2没什么关系</p>
+<p>R3上的G0/0/1接口：<br><img src="https://i.loli.net/2020/07/03/F6jcnMm4ptD7e3g.png" alt="27.png"></p>
+<p>R3与R301之间建立邻接关系，过程在之前已经分析过，这边主要看R3发送的LSU报文：<br>报文17：<br><img src="https://i.loli.net/2020/07/03/ZktoIPyOcJGDKLM.png" alt="28.png"></p>
+<p>里面包含一个一类路由Router-LSA描述R3的路由信息<br><img src="https://i.loli.net/2020/07/03/NTcjyr3Btqom75d.png" alt="29.png"></p>
+<p>多个三类路由summary-LSA描述外部区域的路由信息（前面解析过所以不多赘述）<br><strong>一个四类路由AS-Extermal LSA</strong><br><img src="https://i.loli.net/2020/07/03/2WFMY8JyIoB54fx.png" alt="30.png"></p>
+<p><strong>一个五类路由AS-External-LSA</strong><br><img src="https://i.loli.net/2020/07/03/XVKg5bk6mj9w1ET.png" alt="31.png"></p>
+<p>在R3的G0/0/2端口：<br><img src="https://i.loli.net/2020/07/03/mWqL3TNHO6CweMc.png" alt="32.png"></p>
+<p>报文23：R3在区域内泛洪Area 3的拓扑信息（三类路由）<br><img src="https://i.loli.net/2020/07/03/HhiILrWN4pK1F8d.png" alt="33.png"></p>
+<p>在R3上用配置命令<code>[Huawei]dis ospf lsdb</code> 查看路由器中连接状态数据库<br><img src="https://i.loli.net/2020/07/03/jOpiC1HFXgsIf6G.png" alt="34.png"></p>
+<p><strong>与前面单区域P2P网络和单区域MA网络不通的是，增加了Sum-Net网络类型和Sum-Asbr</strong><br><img src="https://i.loli.net/2020/07/03/C52cZEfGqa9Fzol.png" alt="35.png"></p>
+<p><font color=red><strong>因为四类路由是ABR产生泛洪，所以一个区域内可能受到多个五类路由（不同ABR产生的）</strong></font></p>
+<p><img src="https://i.loli.net/2020/07/03/YuSvFs1wMr3Xt87.png" alt="36.png"></p>
+<p><img src="https://i.loli.net/2020/07/03/SR1xDKyMVf9pUgb.png" alt="37.png"></p>
+<p><strong>五类路由会泛洪到整个AS，所以AS中每个路由器的LSDB中都能看到AS External信息</strong></p>
+<p>在R1上用配置命令<code>[Huawei]dis ospf lsdb brief</code> 命令查看本地连接状态数据库简要信息<br><img src="https://i.loli.net/2020/07/03/NaZSDiYcb9UhXgB.png" alt="38.png"></p>
+<p>只有区域0和区域1的LSDB</p>
+<p>在R101中用用配置命令<code>[Huawei]dis ospf lsdb brief</code>命令查看本地连接状态数据库简要信息<br><img src="https://i.loli.net/2020/07/03/IN25bWGYrR6jSLB.png" alt="39.png"></p>
+<p>只有所在区域的LSDB信息<br><font color=red><strong>说明路由器中的LSDB包含所有端口所在区域的链路信息（如R1中有Area 0与Area 1的LSDB，R102中有Area 1 的LSDB）</strong></font></p>
+<p>而在R3中：<br><img src="https://i.loli.net/2020/07/03/i6HIDgNmJXFVane.png" alt="40.png"></p>
+<p><font color=red><strong>除了直连的Area 2 和Area 3 的链路信息外，还有Area 0 骨干区的信息，这是因为虚链接在逻辑上将区域3连接到了骨干区。</strong></font></p>
+<p>在R3上用配置命令<code>[Huawei]dis ospf routing</code> 查看ospf路由表<br><img src="https://i.loli.net/2020/07/03/dyKMLBT5GckVPhw.png" alt="41.png"></p>
+<h4 id="路由开销"><a href="#路由开销" class="headerlink" title="路由开销"></a>路由开销</h4><p>在R302上配置：<code>[Huawei]dis ospf routing</code> 查看路由信息<br><img src="https://i.loli.net/2020/07/03/EjsSeuG3gMDXhHo.png" alt="42.png"></p>
+<p><img src="https://i.loli.net/2020/07/03/kWH1MR64D8fTrd5.png" alt="43.png"></p>
+<p><img src="https://i.loli.net/2020/07/03/1lcnL4ipwGueXTs.png" alt="44.png"></p>
+<p>验证：在区域3中加了一台路由器<br><img src="https://i.loli.net/2020/07/03/wPQ5bzRx3cWi8au.png" alt="45.png"></p>
+<p>查看lsbd表<br><img src="https://i.loli.net/2020/07/03/pmGTUoPX4fnjQ8K.png" alt="46.png"></p>
+<p>本区域内的metric默认都为1<br>用配置命令：<code>[R0-ospf-1]import-route static type 1</code>更改外部路由协议注入ospf路由协议<br><img src="https://i.loli.net/2020/07/03/gqo5zGdEUjkynrc.png" alt="47.png"></p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>   <strong>在多区域P2P网络中：</strong><br>1）会捕捉到一类、三类路由，有外网的话则还会产生四类、五类路由<br>2）一类路由中有stub、PTP类型连接，如果有配置虚链接的话还会有virtual类型<br>3）配置虚链接后，只能在区域0捕捉到带virtual链路类型的一类路由。<br>4）在同个区域内的路由器之间的Metric均为1.<br>5）一类路由仅在本区域内广播<br>6）ASBR发送五类路由广播，AS中的路由器中的LSDB中都会增加AS-External的信息<br>7）ABR收到ASBR发送的五类路由后，会产生四类路由在本区域被泛洪<br>8）路由器的lsdb包含所有端口所在区域的链路信息和外AS信息。如果设置虚链接，则非直连区域的ABR的LSDB中还会有区域0的链路信息。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -186,95 +326,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/03/ospf-3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/03/ospf-2/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:02:13.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/03/ospf-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ospf学习笔记（二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/03/ospf-2/">ospf学习笔记（二）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OSPF单区域MA网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/02/ospf/" class="archive-article-date">
-  	<time datetime="2020-07-02T14:07:03.308Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/02/ospf/">OSPF学习笔记（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OSPF单区域P2P网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -297,8 +448,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
